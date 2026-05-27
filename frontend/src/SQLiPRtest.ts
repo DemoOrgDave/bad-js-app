@@ -35,3 +35,4 @@ let statement2 = 'INSERT INTO entries(RecordNumber,CustomerName,Email,Phone,Stat
 };
 
 
+
