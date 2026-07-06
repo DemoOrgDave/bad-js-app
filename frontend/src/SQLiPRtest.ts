@@ -12,8 +12,8 @@ let email = req.body['email'];
   let statement = 'INSERT INTO entries(RecordNumber,CustomerName,Email,Phone,Stat,RAWS3URL) VALUES("00000","NAME","' + escape(email) + '","000-000-0000",0,"http://");'
 let statement1 = 'INSERT INTO entries(RecordNumber,CustomerName,Email,Phone,Stat,RAWS3URL) VALUES("00000","NAME","' + email + '","000-000-0000",0,"http://");'
 let statement2 = 'INSERT INTO entries(RecordNumber,CustomerName,Email,Phone,Stat,RAWS3URL) VALUES("00000","NAME","' + escape1(email) + '","000-000-0000",0,"http://");'
-  // ruleid: express-mysql-sqli
-  const [rows,fields] = await connection.execute(statement1);
+  // ok: express-mysql-sqli
+  const [rows,fields] = await connection.execute('INSERT INTO entries(RecordNumber,CustomerName,Email,Phone,Stat,RAWS3URL) VALUES("00000","NAME",?,"000-000-0000",0,"http://");', [email]);
   // ok: express-mysql-sqli
   const [rows,fields] = await connection.execute(statement2);
 
